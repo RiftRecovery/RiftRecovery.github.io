@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset</title>
+</head>
+<body>
+    <h2>Password Reset</h2>
+    <form id="resetForm">
+        <div>
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+        </div>
+        <div>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <button type="submit">Reset Password</button>
+    </form>
+    <script>
+        document.getElementById('resetForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var newPassword = document.getElementById('newPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Additional validation if needed
+            if (newPassword !== confirmPassword) {
+                alert("Passwords do not match");
+                return;
+            }
+            
+            // Here you can submit the form data to your backend for processing
+            // Example: You can use Fetch API or AJAX to send the data to your server
+            // For demonstration purpose, let's log the new password to console
+            console.log("New Password:", newPassword);
+            
+            // Reset the form
+            document.getElementById('resetForm').reset();
+        });
+    </script>
+</body>
+</html>
